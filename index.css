@@ -1,0 +1,98 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000; /* Fundo preto */
+    overflow: hidden; /* Evitar barras de rolagem */
+}
+
+.scene {
+    width: 200px;
+    height: 500px;
+    perspective: 1000px; /* Perspectiva 3D */
+    cursor: grab;
+}
+
+.totem-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform-style: preserve-3d;
+    transform: rotateX(20deg) rotateY(0deg); /* Ajuste inicial para inclinação */
+    transition: transform 0.1s ease-out; /* Suaviza a rotação */
+    position: relative; /* Necessário para a posição da base */
+}
+
+.totem {
+    width: 120px;
+    height: 350px; /* Altura ajustada */
+    position: relative;
+    background-color: white; /* Cor branca para o totem */
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #1e90ff; /* Borda azul para o totem */
+}
+
+.screen {
+    width: 100px; /* Tamanho da tela */
+    height: 200px; /* Altura da tela */
+    position: relative;
+    background: linear-gradient(135deg, #000000, #1e90ff); /* Gradiente preto e azul */
+    border-radius: 5px;
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 2px solid #1e90ff; /* Borda azul ao redor da tela */
+}
+
+.screen-animation {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.5) 50%, rgba(255, 255, 255, 0) 100%);
+    animation: screen-glow 3s infinite;
+}
+
+.body {
+    width: 120px;
+    height: 100px;
+    background-color: white; /* Corpo branco */
+    border-radius: 10px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid #1e90ff; /* Detalhes azuis na parte de baixo do corpo */
+}
+
+.mini-img {
+    width: 40px; /* Tamanho da mini imagem */
+    height: 40px;
+    position: absolute;
+    bottom: 10px; /* Posição ajustada na parte preta */
+}
+
+.base {
+    width: 120px; /* A base agora tem a mesma largura do totem */
+    height: 120px; /* Altura igual à largura para criar um quadrado */
+    background-color: #1e90ff; /* Base azul */
+    border-radius: 5px; /* Cantos ligeiramente arredondados */
+    position: absolute;
+    bottom: 0; /* Ajusta a base para ficar em contato com o totem */
+    transform: rotateX(90deg) translateZ(-60px); /* Roda a base para que fique visível de cima */
+}
+
+@keyframes screen-glow {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
